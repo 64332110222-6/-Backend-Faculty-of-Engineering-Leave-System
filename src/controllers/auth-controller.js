@@ -29,7 +29,7 @@ const jwt = require('jsonwebtoken');
 exports.login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-
+        
         const user = await UserService.getUserByEmail(email);
         if(!user) {
             return createError(404, 'User not found');
